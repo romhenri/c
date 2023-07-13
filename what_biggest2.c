@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int what_biggest(arr)
+int what_biggest(int arr[])
 {
 	int biggest = -1;
 
@@ -12,8 +12,8 @@ int what_biggest(arr)
 		}
 	}
 
-	return biggest
-}
+	return biggest;
+};
 
 int main(void)
 {
@@ -30,7 +30,7 @@ int main(void)
 	}
 
 	int biggest = what_biggest(arr);
-	printf("biggest: %d", biggest);
+	printf("\nbiggest: %d\n", biggest);
 
 	return 0;
 }
