@@ -25,8 +25,8 @@ int main()
     for (int i = 0; i < QTDE_PESSOAS; i++)
     {
         printf("Idade: %d\n", personagens[i].id);
-        printf("Idade: %s\n", personagens[i].name);
-        printf("Idade: %f\n", personagens[i].size);
+        printf("Nome: %s\n", personagens[i].name);
+        printf("Altura: %f\n", personagens[i].size);
     }
 
     return 0;
