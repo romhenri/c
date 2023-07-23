@@ -11,6 +11,8 @@ int main()
 	// "a" para Acrescentar - "Appends";
 	// "r" para Ler - "Read";
 
+	fprintf(fptr, "Hello, world!");
+
 	fclose(fptr);
 	return 0;
 }
