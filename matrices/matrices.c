@@ -28,6 +28,62 @@ void geraMatriz(int matriz[3][3]) {
   }
 }
 
+void maiorValor(int matriz[][3]) {
+  int maior = 0, posI = 0, posJ = 0;
+
+  for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+      if (matriz[i][j] > maior) {
+        maior = matriz[i][j];
+        posI = i;
+        posJ = j;
+      }
+    }
+  }
+  printf("\nO maior valor da matriz é %d\n", maior);
+  printf("Posição: [%d][%d]\n", posI, posJ);
+}
+
+void somaMatriz(int matriz[3][3]) {
+  int soma = 0;
+
+  for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+      soma += matriz[i][j];
+    }
+  }
+
+  printf("\nA soma dos valores da matriz é %d\n", soma);
+}
+
+void somaDiagonalPrincipal(int matriz[3][3]) {
+  int soma = 0;
+
+  for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+      if (i == j) {
+        soma += matriz[i][j];
+      }
+    }
+  }
+
+  printf("\nA soma da diagonal principal é %d\n", soma);
+}
+
+void somaDiagonalSecundaria(int matriz[3][3]) {
+  int soma = 0;
+
+  for (int i = 0; i < 3; i++) {
+    for (int j = 0; j < 3; j++) {
+      if (i + j == 2) {
+        soma += matriz[i][j];
+      }
+    }
+  }
+
+  printf("\nA soma da diagonal secundária é %d\n", soma);
+}
+
 int main(void) {
   srand(time(NULL)); // use current time as seed for random generator
 
@@ -40,5 +96,9 @@ int main(void) {
 
   geraMatriz(m);
   mostraMatriz(m);
+  maiorValor(m);
+  somaDiagonalPrincipal(m);
+  somaDiagonalSecundaria(m);
+  somaMatriz(m);
   return 0;
 }
