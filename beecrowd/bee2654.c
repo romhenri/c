@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 typedef struct {
-    char S[100];
+    char S[101];
     int P, K, M;
 } hero;
 
@@ -15,35 +15,51 @@ void inputHeroes(hero list[], int size) {
 }
 
 void theGodofor(hero list[], int size){
-    hero best;
-    best.P = 0;
-    best.K = 0;
-    best.M = 9999999;
+    int P = 0, K = 0, M = 9999999;
+    char S[101];
+    strcpy(S,"zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz");
     
     int indexBest = 0;
     
     for (int i = 0; i < size; i++){
-        if(list[i].P > best.P) {
-            best.P = list[i].P;
+        if(list[i].P > P) {
+            P = list[i].P;
+            K = list[i].K;
+            M = list[i].M;
+            strcpy(S, list[i].S);
             indexBest = i;
         }
         
-        if(list[i].P == best.P &&
-            list[i].K > best.K) {
-            best.K = list[i].K;
+        else if(list[i].P == P &&
+            list[i].K > K) {
+            K = list[i].K;
+            M = list[i].M;
+            strcpy(S, list[i].S);
             indexBest = i;
         }
         
-        if(list[i].P == best.P &&
-        list[i].K == best.K &&
-        list[i].M < best.M) {
-            best.M = list[i].M;
+        else if(list[i].P == P &&
+        list[i].K == K &&
+        list[i].M < M) {
+            M = list[i].M;
+            strcpy(S, list[i].S);
             indexBest = i;
+        }
+        
+        else if(list[i].P == P &&
+        list[i].K == K &&
+        list[i].M == M
+        ) {
+            if(strcmp(list[i].S, S) < 0) {
+                strcpy(S, list[i].S);
+                indexBest = i;
+            }
         }
     }
     
     printf("%s\n", list[indexBest].S);
 }
+
  
 int main() {
     int heroesNumber;
