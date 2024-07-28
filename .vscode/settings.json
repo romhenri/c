@@ -1,5 +1,6 @@
 {
 	"C_Cpp.errorSquiggles": "enabled",
+	"editor.tabSize": 4,
 	"files.associations": {
 		"stdio.h": "c"
 	}
